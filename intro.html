@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <script src='https://unpkg.com/vue'></script>
+  </head>
+  <body>
+    <div id='declarative-rendering'>
+      {{ message }}
+    </div>
+    <div id='element-binding'>
+      <span v-bind:title='message'>
+        Hover to see my dynamically bound title!
+      </span>
+    </div>
+    <div id='conditionals'>
+      <span v-if='isTrue'>
+        Will show if conditionals.isTrue is true.
+      </span>
+    </div>
+    <div id='loops'>
+      <li v-for='todo in todos'>
+        {{ todo.text }}
+      </li>
+    </div>
+    <div id='userInputButton'>
+      <span>{{ message }}</span>
+      <button v-on:click='reverseMessage'>Reverse Message</button>
+    </div>
+    <div id='twoWayBinding'>
+      <span>{{ message }}</span>
+      <input v-model='message' />
+    </div>
+    <div id='components'>
+      <static-component></static-component>
+      <dynamic-component
+        v-for='item in groceryList'
+        v-bind:item='item'
+        v-bind:key='item.id'>
+      </dynamic-component>
+    </div>
+  </body>
+  <script src='intro.js'></script>
+</html>
